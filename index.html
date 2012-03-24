@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>BBG - Bootstrap Button Generator</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+	
+	
+	<!--[if lt IE 9]>
+		<script src="../js/html5.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="jquery.miniColors/jquery.miniColors.js"></script>
+	<link type="text/css" href="jquery.miniColors/jquery.miniColors.css" rel="stylesheet">
+	
+	<style type="text/css">
+	.row {
+		margin-top: 25px;
+	}
+	</style>
+</head>
+<body id="top">
+
+	<div class="container">
+		<header class="page-header">
+			<div class="row">
+				<div class="span10">
+					<h1>Bootstrap Button Generator</h1>
+				</div>
+			</div>
+		</header>
+		
+		<section>
+			<div class="row">
+				<div class="span8">
+					<form class="form-horizontal">
+						<h2>Parameters</h2>
+						<fieldset>
+							<div class="control-group">
+								<label class="control-label" for="class-name">class:</label>
+								<div class="controls">
+									<input type="text" name="class-name" id="class-name" class="span2" value="btn-sample"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="color1">color 1:</label>
+								<div class="controls">
+									<input type="text" name="color1" id="color1" class="color-picker span2" size="7" value="#AF4CE8"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="color2">color 2:</label>
+								<div class="controls">
+									<input type="text" name="color2" id="color2" class="color-picker span2" size="7" value="#611BBD"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="background-color">background:</label>
+								<div class="controls">
+									<input type="text" name="background-color" id="background-color" class="color-picker span2" size="7" value="#5B069C" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="border-color">border:</label>
+								<div class="controls">
+									<input type="text" name="border-color" id="border-color" class="color-picker span2" size="7" value="#000000" />
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="span10">
+					<form>
+						<h2>Preview</h2>
+						<button class="btn sample">Sample button</button>
+						<a class="btn sample">Sample link</a>
+						<br/><br/>
+						<label class="control-label" for="css-text">Add the following CSS <strong>below</strong> <em>bootstrap.min.css</em> to use this button:    <a href="#" id="select-all" class="pull-right">Select all</a></label>
+						<textarea class="input-xlarge span10" id="css-text" rows="20"></textarea>
+					</form>
+				</div>
+			</div>
+		</section>
+		
+	</div>
+	
+   
+	<script type="text/javascript">
+	$(function() {
+	
+		$('.color-picker').miniColors({
+			letterCase: 'upercase',
+			change: function(hex, rgb) {
+				refreshSample();
+			}
+		});
+		
+		$('#class-name').on('blur', function() {
+			refreshSample();
+		});
+		
+		$('#select-all').on('click', function(e) {
+			e.preventDefault();
+			$('#css-text').select();
+		});
+		
+		refreshSample();
+		
+		function refreshSample() {
+			
+			var cssTemplate = 
+".@class-name, \n\
+.@class-name:hover { \n\
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); \n\
+    color: #ffffff; \n\
+} \n\
+.@class-name { \n\
+	background-color: @background-color; \n\
+	background-image: -moz-linear-gradient(top, @color1, @color2); \n\
+	background-image: -ms-linear-gradient(top, @color1, @color2); \n\
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@color1), to(@color2)); \n\
+	background-image: -webkit-linear-gradient(top, @color1, @color2); \n\
+	background-image: -o-linear-gradient(top, @color1, @color2); \n\
+	background-image: linear-gradient(top, @color1, @color2); \n\
+	background-repeat: repeat-x; \n\
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color1', endColorstr='@color2', GradientType=0); \n\
+	border-color: @color2 @color2 @border-color; \n\
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); \n\
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); \n\
+} \n\
+.@class-name:hover, \n\
+.@class-name:active, \n\
+.@class-name.active, \n\
+.@class-name.disabled, \n\
+.@class-name[disabled] { \n\
+	background-color: @color2; \n\
+}";
+
+			var css = cssTemplate
+				.replace(/@color1/g, $('#color1').val())
+				.replace(/@color2/g, $('#color2').val())
+				.replace(/@border-color/g, $('#border-color').val())
+				.replace(/@background-color/g, $('#background-color').val())
+				.replace(/@class-name/g, $('#class-name').val());
+		
+			$('head style[data-role="custom"]').remove();
+			$('<style type="text/css" data-role="custom">').appendTo('head').html(css);
+			$('#css-text').html(css);
+			
+			$('.sample').addClass($('#class-name').val())
+		}
+	});
+	</script>
+   
+  </body>
+</html>
