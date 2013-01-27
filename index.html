@@ -80,33 +80,33 @@
 						<br/>
 						<fieldset>
 							<div class="control-group">
-								<label class="control-label" for="class-name">class:</label>
+								<label class="control-label" for="class-name">CSS class name:</label>
 								<div class="controls">
 									<input type="text" name="class-name" id="class-name" class="span2" value="btn-sample"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="color1">color 1:</label>
+								<label class="control-label" for="color1">Color 1:</label>
 								<div class="controls">
 									<input type="text" name="color1" id="color1" class="color-picker span2" size="7" value="#AF4CE8"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="color2">color 2:</label>
+								<label class="control-label" for="color2">Color 2:</label>
 								<div class="controls">
 									<input type="text" name="color2" id="color2" class="color-picker span2" size="7" value="#611BBD"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="background-color">background:</label>
+								<label class="control-label" for="text-color">Text color:</label>
 								<div class="controls">
-									<input type="text" name="background-color" id="background-color" class="color-picker span2" size="7" value="#5B069C" />
+									<input type="text" name="text-color" id="text-color" class="color-picker span2" size="7" value="#FFFFFF" />
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="border-color">border:</label>
+								<label class="control-label" for="disabled-text-color">Disabled text color:</label>
 								<div class="controls">
-									<input type="text" name="border-color" id="border-color" class="color-picker span2" size="7" value="#000000" />
+									<input type="text" name="disabled-text-color" id="disabled-text-color" class="color-picker span2" size="7" value="#FFFFFF" />
 								</div>
 							</div>
 						</fieldset>
@@ -117,18 +117,22 @@
 					<br/>
 					<p>
 						<button class="btn sample btn-large">Large Button</button>
+						<button class="btn sample btn-large active">Active</button>
 						<button class="btn sample btn-large disabled">Disabled</button>
 					</p>
 					<p>
 						<button class="btn sample">Default Button</button>
+						<button class="btn sample active">Active</button>
 						<button class="btn sample disabled">Disabled</button>
 					</p>
 					<p>
 						<button class="btn sample btn-small">Small Button</button>
+						<button class="btn sample btn-small active">Active</button>
 						<button class="btn sample btn-small disabled">Disabled</button>
 					</p>
 					<p>
 						<button class="btn sample btn-mini">Mini Button</button>
+						<button class="btn sample btn-mini active">Active</button>
 						<button class="btn sample btn-mini disabled">Disabled</button>
 					</p>
 				</div>
@@ -180,39 +184,39 @@
 		function refreshSample() {
 			
 			var cssTemplate = 
-".@class-name, \n\
-.@class-name:hover { \n\
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); \n\
-    color: #ffffff; \n\
-} \n\
-.@class-name { \n\
-	background-color: @background-color; \n\
-	background-image: -moz-linear-gradient(top, @color1, @color2); \n\
-	background-image: -ms-linear-gradient(top, @color1, @color2); \n\
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@color1), to(@color2)); \n\
-	background-image: -webkit-linear-gradient(top, @color1, @color2); \n\
-	background-image: -o-linear-gradient(top, @color1, @color2); \n\
-	background-image: linear-gradient(top, @color1, @color2); \n\
-	background-repeat: repeat-x; \n\
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color1', endColorstr='@color2', GradientType=0); \n\
-	border-color: @color2 @color2 @border-color; \n\
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); \n\
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); \n\
-} \n\
-.@class-name:hover, \n\
-.@class-name:active, \n\
-.@class-name.active, \n\
-.@class-name.disabled, \n\
-.@class-name[disabled] { \n\
-	background-color: @color2; \n\
+".@class-name {\n\
+	color: @text-color;\n\
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);\n\
+	background-color: @background-color;\n\
+	*background-color: @color2;\n\
+	background-image: -moz-linear-gradient(top, @color1, @color2);\n\
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@color1), to(@color2));\n\
+	background-image: -webkit-linear-gradient(top, @color1, @color2);\n\
+	background-image: -o-linear-gradient(top, @color1, @color2);\n\
+	background-image: linear-gradient(to bottom, @color1, @color2);\n\
+	background-repeat: repeat-x;\n\
+	border-color: @color2;\n\
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);\n\
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color1', endColorstr='@color2', GradientType=0);\n\
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);\n\
+}\n\
+.@class-name:hover,\n\
+.@class-name:active,\n\
+.@class-name.active,\n\
+.@class-name.disabled,\n\
+.@class-name[disabled] {\n\
+	color: @disabled-text-color;\n\
+	background-color: @color2;\n\
+	*background-color: #003bb3;\n\
 }";
 
 			var css = cssTemplate
 				.replace(/@color1/g, $('#color1').val())
 				.replace(/@color2/g, $('#color2').val())
-				.replace(/@border-color/g, $('#border-color').val())
-				.replace(/@background-color/g, $('#background-color').val())
-				.replace(/@class-name/g, $('#class-name').val());
+				.replace(/@text-color/g, $('#text-color').val())
+				.replace(/@class-name/g, $('#class-name').val())
+				.replace(/@disabled-text-color/g, $('#disabled-text-color').val())
+				.replace();
 		
 			$('head style[data-role="custom"]').remove();
 			$('<style type="text/css" data-role="custom">').appendTo('head').html(css);
