@@ -22,143 +22,162 @@
 	<link type="text/css" href="jquery.miniColors/jquery.miniColors.css" rel="stylesheet">
 	
 	<style type="text/css">
-	.row {
+	body {
+		background-color: #f00;
+		background-image: url('img/tiny_grid.png');
+	}
+	.content {
+		width: 1000px;
+		margin: 0 auto;
+		background-color: rgba(255, 255, 255, .95);
+		box-shadow: 3px 0px 5px #E0E0E0, -3px 0px 5px #E0E0E0;
+	}
+	.row { 
 		margin-top: 25px;
+	}
+	.center {
+		text-align: center;
+	}
+	strong {
+		font-size: 15px;
 	}
 	</style>
 </head>
 <body id="top">
-
-	<div class="container">
-		<header class="page-header">
-			<div class="row">
-				<div class="span12">
-					<h1>Bootstrap Button Generator<br><small>The simplest way to generate new button styles for <a href="http://twitter.github.com/bootstrap/">Twitter's Bootstrap</a></small></h1>
-				</div>
-			</div>
-		</header>
-		
-		<section id="intro">
-			<div class="row">
-				<div class="span12">
-					<h2>How to use BBG</h2>
-				</div>			
-			</div>
-			<div class="row">
-				<div class="span12">
-					<p>
-						It's easy. Really. Just enter the css class you want to assign to your new button style and 
-						play with the different button colors to update the live previews in the left.
-					</p>
-					<p>
-					   When you are ready, copy the code below and 
-					   add it to your page <strong>below</strong> <em>bootstrap.min.css</em> to use the button.
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span12">
-					<p>
-						<strong>What if I need to...</strong>
-					</p>
-					<p>
-						Sorry, but this is a very simple tool to do only a very simple thing: <em>generate button syles</em>.
-						If you need to customize other Boostrap aspects, take a look at the 
-						<a href="http://twitter.github.com/bootstrap/customize.html">official customization tool</a>.
-					</p>
-				</div>
-			</div>
-		</section>
-		
-		<hr/>
-		
-		<section id="generator">
-			<div class="row">
-				<div class="span5">
-					<form class="form-horizontal">
-						<h2>Generate Button</h2>
-						<br/>
-						<fieldset>
-							<div class="control-group">
-								<label class="control-label" for="class-name">CSS class name:</label>
-								<div class="controls">
-									<input type="text" name="class-name" id="class-name" class="span2" value="btn-sample"/>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="color1">Color 1:</label>
-								<div class="controls">
-									<input type="text" name="color1" id="color1" class="color-picker span2" size="7" value="#AF4CE8"/>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="color2">Color 2:</label>
-								<div class="controls">
-									<input type="text" name="color2" id="color2" class="color-picker span2" size="7" value="#611BBD"/>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="text-color">Text color:</label>
-								<div class="controls">
-									<input type="text" name="text-color" id="text-color" class="color-picker span2" size="7" value="#FFFFFF" />
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="disabled-text-color">Disabled text color:</label>
-								<div class="controls">
-									<input type="text" name="disabled-text-color" id="disabled-text-color" class="color-picker span2" size="7" value="#FFFFFF" />
-								</div>
-							</div>
-						</fieldset>
-					</form>
-				</div>
-				<div class="span7">
-					<h2><small>Preview</small></h2>
-					<br/>
-					<p>
-						<button class="btn sample btn-large">Large Button</button>
-						<button class="btn sample btn-large active">Active</button>
-						<button class="btn sample btn-large disabled">Disabled</button>
-					</p>
-					<p>
-						<button class="btn sample">Default Button</button>
-						<button class="btn sample active">Active</button>
-						<button class="btn sample disabled">Disabled</button>
-					</p>
-					<p>
-						<button class="btn sample btn-small">Small Button</button>
-						<button class="btn sample btn-small active">Active</button>
-						<button class="btn sample btn-small disabled">Disabled</button>
-					</p>
-					<p>
-						<button class="btn sample btn-mini">Mini Button</button>
-						<button class="btn sample btn-mini active">Active</button>
-						<button class="btn sample btn-mini disabled">Disabled</button>
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span10 offset1">
-					<form>
-						<h2><small>CSS Code</small></h2>
-						<label class="control-label" for="css-text">Add the following CSS <strong>below</strong> <em>bootstrap.min.css</em> to use this button:    <a href="#" id="select-all" class="pull-right">Select all</a></label>
-						<textarea class="input-xlarge span10" id="css-text" rows="10"></textarea>
-					</form>
-				</div>
-			</div>
-		</section>
-		
-		<footer>
-			<div class="row">
-				<span class="span12">
-				<hr>
-				By Juan M. Hernández [<a href="http://blog.koalite.com">blog.koalite.com</a>]
-				</span>
-			</div>
-		</footer>
-		
-	</div>
+	<div class="content">
 	
+		<div class="container">
+			<header class="page-header">
+				<div class="row">
+					<div class="span12">
+						<h1>Bootstrap Button Generator<br><small>The simplest way to generate new button styles for <a href="http://twitter.github.com/bootstrap/">Twitter's Bootstrap</a></small></h1>
+					</div>
+				</div>
+			</header>
+			
+			<section id="intro">
+				<div class="row">
+					<div class="span12">
+						<h2>How to use BBG</h2>
+					</div>			
+				</div>
+				<div class="row">
+					<div class="span8">
+						<p>
+							It's easy. Really. Just enter the css class you want to assign to your new button style and 
+							play with the different button colors to update the live previews in the left.
+						</p>
+						<p>
+						   When you are ready, copy the code below and 
+						   add it to your page <strong>below</strong> <em>bootstrap.min.css</em> to use the button.
+						</p>
+						<p>
+							<strong>What if I need to...</strong>
+						</p>
+						<p>
+							Sorry, but this is a very simple tool to do a very simple thing: <em>generate button syles</em>.
+							If you need to customize other Boostrap aspects, take a look at the 
+							<a href="http://twitter.github.com/bootstrap/customize.html">official customization tool</a>.
+						</p>
+					</div>
+					<div class="span4">
+						<img src="img/bootstrap_twitter.gif" alt="Bootstrap"/>
+					</div>
+				</div>
+			</section>
+			
+			<hr/>
+			
+			<section id="generator">
+				<div class="row">
+					<div class="span5">
+						<form class="form-horizontal">
+							<h2>Generate Button</h2>
+							<br/>
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label" for="class-name">Class Name:</label>
+									<div class="controls">
+										<input type="text" name="class-name" id="class-name" class="span2" value="btn-sample"/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="color1">Color 1:</label>
+									<div class="controls">
+										<input type="text" name="color1" id="color1" class="color-picker span2" size="7" value="#AF4CE8"/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="color2">Color 2:</label>
+									<div class="controls">
+										<input type="text" name="color2" id="color2" class="color-picker span2" size="7" value="#611BBD"/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="text-color">Text:</label>
+									<div class="controls">
+										<input type="text" name="text-color" id="text-color" class="color-picker span2" size="7" value="#FFFFFF" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="disabled-text-color">Alt. Text:</label>
+									<div class="controls">
+										<input type="text" name="disabled-text-color" id="disabled-text-color" class="color-picker span2" size="7" value="#FFFFFF" />
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="span7">
+						<h2><small>Button Previews</small></h2>
+						<br/>
+						<p>
+							<button class="btn sample btn-large">Large Button</button>
+							<button class="btn sample btn-large active">Active</button>
+							<button class="btn sample btn-large disabled">Disabled</button>
+						</p>
+						<p>
+							<button class="btn sample">Default Button</button>
+							<button class="btn sample active">Active</button>
+							<button class="btn sample disabled">Disabled</button>
+						</p>
+						<p>
+							<button class="btn sample btn-small">Small Button</button>
+							<button class="btn sample btn-small active">Active</button>
+							<button class="btn sample btn-small disabled">Disabled</button>
+						</p>
+						<p>
+							<button class="btn sample btn-mini">Mini Button</button>
+							<button class="btn sample btn-mini active">Active</button>
+							<button class="btn sample btn-mini disabled">Disabled</button>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span10 offset1">
+						<form>
+							<h2><small>CSS Code</small></h2>
+							<label class="control-label" for="css-text">Add the following CSS <strong>below</strong> <em>bootstrap.min.css</em> to use this button:    <a href="#" id="select-all" class="pull-right">Select all</a></label>
+							<textarea class="input-xlarge span10" id="css-text" rows="10"></textarea>
+						</form>
+					</div>
+				</div>
+			</section>
+			
+			<footer>
+				<div class="row">
+					<div class="span12 center">
+						<hr>
+						<small>
+							By Juan M. Hernández [<a href="http://blog.koalite.com">blog.koalite.com</a>]
+						</small>
+					</div>
+				</div>
+			</footer>
+			
+		</div>
+	
+	</div>
    
 	<script type="text/javascript">
 	$(function() {
