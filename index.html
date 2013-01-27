@@ -32,17 +32,52 @@
 	<div class="container">
 		<header class="page-header">
 			<div class="row">
-				<div class="span10">
-					<h1>Bootstrap Button Generator</h1>
+				<div class="span12">
+					<h1>Bootstrap Button Generator<br><small>The simplest way to generate new button styles for <a href="http://twitter.github.com/bootstrap/">Twitter's Bootstrap</a></small></h1>
 				</div>
 			</div>
 		</header>
 		
-		<section>
+		<section id="intro">
 			<div class="row">
-				<div class="span8">
+				<div class="span12">
+					<h2>How to use BBG</h2>
+				</div>			
+			</div>
+			<div class="row">
+				<div class="span12">
+					<p>
+						It's easy. Really. Just enter the css class you want to assign to your new button style and 
+						play with the different button colors to update the live previews in the left.
+					</p>
+					<p>
+					   When you are ready, copy the code below and 
+					   add it to your page <strong>below</strong> <em>bootstrap.min.css</em> to use the button.
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span12">
+					<p>
+						<strong>What if I need to...</strong>
+					</p>
+					<p>
+						Sorry, but this is a very simple tool to do only a very simple thing: <em>generate button syles</em>.
+						If you need to customize other Boostrap aspects, take a look at the 
+						<a href="http://twitter.github.com/bootstrap/customize.html">official customization tool</a>.
+					</p>
+				</div>
+			</div>
+		</section>
+		
+		<hr/>
+		
+		<section id="generator">
+			<div class="row">
+				<div class="span5">
 					<form class="form-horizontal">
-						<h2>Parameters</h2>
+						<h2>Generate Button</h2>
+						<br/>
 						<fieldset>
 							<div class="control-group">
 								<label class="control-label" for="class-name">class:</label>
@@ -77,17 +112,33 @@
 						</fieldset>
 					</form>
 				</div>
+				<div class="span7">
+					<h2><small>Preview</small></h2>
+					<br/>
+					<p>
+						<button class="btn sample btn-large">Large Button</button>
+						<button class="btn sample btn-large disabled">Disabled</button>
+					</p>
+					<p>
+						<button class="btn sample">Default Button</button>
+						<button class="btn sample disabled">Disabled</button>
+					</p>
+					<p>
+						<button class="btn sample btn-small">Small Button</button>
+						<button class="btn sample btn-small disabled">Disabled</button>
+					</p>
+					<p>
+						<button class="btn sample btn-mini">Mini Button</button>
+						<button class="btn sample btn-mini disabled">Disabled</button>
+					</p>
+				</div>
 			</div>
-			<hr>
 			<div class="row">
-				<div class="span10">
+				<div class="span10 offset1">
 					<form>
-						<h2>Preview</h2>
-						<button class="btn sample">Sample button</button>
-						<a class="btn sample">Sample link</a>
-						<br/><br/>
+						<h2><small>CSS Code</small></h2>
 						<label class="control-label" for="css-text">Add the following CSS <strong>below</strong> <em>bootstrap.min.css</em> to use this button:    <a href="#" id="select-all" class="pull-right">Select all</a></label>
-						<textarea class="input-xlarge span10" id="css-text" rows="20"></textarea>
+						<textarea class="input-xlarge span10" id="css-text" rows="10"></textarea>
 					</form>
 				</div>
 			</div>
@@ -95,7 +146,7 @@
 		
 		<footer>
 			<div class="row">
-				<span class="12">
+				<span class="span12">
 				<hr>
 				By Juan M. Hernández [<a href="http://blog.koalite.com">blog.koalite.com</a>]
 				</span>
@@ -171,6 +222,17 @@
 		}
 	});
 	</script>
-   
+	
+	<script type="text/javascript">//<![CDATA[
+	// Google Analytics for WordPress by Yoast v4.2.3 | http://yoast.com/wordpress/google-analytics/
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount','UA-25366517-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	//]]></script>
   </body>
 </html>
