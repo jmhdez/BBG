@@ -239,7 +239,7 @@
 		
 			$('head style[data-role="custom"]').remove();
 			$('<style type="text/css" data-role="custom">').appendTo('head').html(css);
-			$('#css-text').html(css);
+			$('#css-text').val(css);
 			
 			$('.sample').addClass($('#class-name').val())
 		}
