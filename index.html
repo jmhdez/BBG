@@ -26,11 +26,16 @@
 		background-image: url('img/tiny_grid.png');
 	}
 	.content {
-		xwidth: 1000px;
+		max-width: 1000px;
 		margin: 0 auto;
 		background-color: rgba(255, 255, 255, .95);
 		box-shadow: 3px 0px 5px #E0E0E0, -3px 0px 5px #E0E0E0;
 	}
+	.container {
+		max-width: 1000px;
+		padding-left: 30px;
+		padding-right: 30px;
+  }
 	.row { 
 		margin-top: 25px;
 	}
@@ -39,6 +44,11 @@
 	}
 	strong {
 		font-size: 15px;
+	}
+	
+	.form-control.color-picker {
+		width: 80.5%;
+		display: inline-block;
 	}
 	</style>
 </head>
@@ -80,7 +90,7 @@
 						</p>
 					</div>
 					<div class="col-md-4">
-						<img src="img/bootstrap_twitter.gif" alt="Bootstrap"/>
+						<img src="img/bootstrap_twitter.gif" class="img-responsive" alt="Bootstrap"/>
 					</div>
 				</div>
 			</section>
@@ -89,45 +99,45 @@
 			
 			<section id="generator">
 				<div class="row">
-					<div class="col-md-5">
+				
+					<div class="col-md-5 col-md-offset-1">
 						<form class="form-horizontal">
 							<h2>Generate Button</h2>
 							<br/>
-							<fieldset>
-								<div class="control-group">
-									<label class="control-label" for="class-name">Class Name:</label>
-									<div class="controls">
-										<input type="text" name="class-name" id="class-name" class="span2" value="btn-sample"/>
-									</div>
+							<div class="form-group">
+								<label class="control-label col-md-6" for="class-name">Class Name:</label>
+								<div class="col-md-6">
+									<input type="text" name="class-name" id="class-name" class="form-control input-sm" value="btn-sample"/>
 								</div>
-								<div class="control-group">
-									<label class="control-label" for="color1">Color 1:</label>
-									<div class="controls">
-										<input type="text" name="color1" id="color1" class="color-picker span2" size="7" value="#AF4CE8"/>
-									</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-6" for="color1">Color 1:</label>
+								<div class="col-md-6">
+									<input type="text" name="color1" id="color1" class="color-picker form-control input-sm" size="7" value="#AF4CE8"/>
 								</div>
-								<div class="control-group">
-									<label class="control-label" for="color2">Color 2:</label>
-									<div class="controls">
-										<input type="text" name="color2" id="color2" class="color-picker span2" size="7" value="#611BBD"/>
-									</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-6" for="color2">Color 2:</label>
+								<div class="col-md-6">
+									<input type="text" name="color2" id="color2" class="color-picker form-control input-sm" size="7" value="#611BBD"/>
 								</div>
-								<div class="control-group">
-									<label class="control-label" for="text-color">Text:</label>
-									<div class="controls">
-										<input type="text" name="text-color" id="text-color" class="color-picker span2" size="7" value="#FFFFFF" />
-									</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-6" for="text-color">Text:</label>
+								<div class="col-md-6">
+									<input type="text" name="text-color" id="text-color" class="color-picker form-control input-sm" size="7" value="#FFFFFF" />
 								</div>
-								<div class="control-group">
-									<label class="control-label" for="disabled-text-color">Alt. Text:</label>
-									<div class="controls">
-										<input type="text" name="disabled-text-color" id="disabled-text-color" class="color-picker span2" size="7" value="#FFFFFF" />
-									</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-6" for="disabled-text-color">Alt. Text:</label>
+								<div class="col-md-6">
+									<input type="text" name="disabled-text-color" id="disabled-text-color" class="color-picker form-control input-sm" size="7" value="#FFFFFF" />
 								</div>
-							</fieldset>
+							</div>
 						</form>
 					</div>
-					<div class="col-md-7">
+					
+					<div class="col-md-5 col-md-offset-1">
 						<h2><small>Button Previews</small></h2>
 						<br/>
 						<p>
@@ -157,7 +167,7 @@
 						<form>
 							<h2><small>CSS Code</small></h2>
 							<label class="control-label" for="css-text">Add the following CSS <strong>below</strong> <em>bootstrap.min.css</em> to use this button:    <a href="#" id="select-all" class="pull-right">Select all</a></label>
-							<textarea class="input-xlarge col-md-10" id="css-text" rows="10"></textarea>
+							<textarea class="input-xlarge col-md-11" id="css-text" rows="10"></textarea>
 						</form>
 					</div>
 				</div>
