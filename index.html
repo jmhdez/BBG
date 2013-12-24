@@ -115,27 +115,27 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-6" for="color1">Color 1:</label>
-								<div class="col-md-6">
-									<input type="text" name="color1" id="color1" class="color-picker form-control input-sm" size="7" value="#AF4CE8"/>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="control-label col-md-6" for="color2">Color 2:</label>
-								<div class="col-md-6">
-									<input type="text" name="color2" id="color2" class="color-picker form-control input-sm" size="7" value="#611BBD"/>
-								</div>
-							</div>
-							<div class="form-group">
 								<label class="control-label col-md-6" for="text-color">Text:</label>
 								<div class="col-md-6">
-									<input type="text" name="text-color" id="text-color" class="color-picker form-control input-sm" size="7" value="#FFFFFF" />
+									<input type="text" name="text-color" id="text-color" class="color-picker form-control input-sm" size="7" value="#ffffff"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-6" for="disabled-text-color">Alt. Text:</label>
+								<label class="control-label col-md-6" for="back-color">Background:</label>
 								<div class="col-md-6">
-									<input type="text" name="disabled-text-color" id="disabled-text-color" class="color-picker form-control input-sm" size="7" value="#FFFFFF" />
+									<input type="text" name="back-color" id="back-color" class="color-picker form-control input-sm" size="7" value="#611BBD"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-6" for="border-color">Border:</label>
+								<div class="col-md-6">
+									<input type="text" name="border-color" id="border-color" class="color-picker form-control input-sm" size="7" value="#130269" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-md-6" for="active-back-color">Active:</label>
+								<div class="col-md-6">
+									<input type="text" name="active-back-color" id="active-back-color" class="color-picker form-control input-sm" size="7" value="#49247A" />
 								</div>
 							</div>
 						</form>
@@ -217,38 +217,58 @@
 		function refreshSample() {
 			
 			var cssTemplate = 
-".@class-name {\n\
-	color: @text-color;\n\
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);\n\
-	background-color: @color2;\n\
-	*background-color: @color2;\n\
-	background-image: -moz-linear-gradient(top, @color1, @color2);\n\
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@color1), to(@color2));\n\
-	background-image: -webkit-linear-gradient(top, @color1, @color2);\n\
-	background-image: -o-linear-gradient(top, @color1, @color2);\n\
-	background-image: linear-gradient(to bottom, @color1, @color2);\n\
-	background-repeat: repeat-x;\n\
-	border-color: @color2;\n\
-	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);\n\
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color1', endColorstr='@color2', GradientType=0);\n\
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);\n\
-}\n\
-.@class-name:hover,\n\
-.@class-name:active,\n\
-.@class-name.active,\n\
-.@class-name.disabled,\n\
-.@class-name[disabled] {\n\
-	color: @disabled-text-color;\n\
-	background-color: @color2;\n\
-	*background-color: #003bb3;\n\
+".@class-name { \n\
+  color: @text-color; \n\
+  background-color: @back-color; \n\
+  border-color: @border-color; \n\
+} \n\
+ \n\
+.@class-name:hover, \n\
+.@class-name:focus, \n\
+.@class-name:active, \n\
+.@class-name.active, \n\
+.open .dropdown-toggle.@class-name { \n\
+  color: @text-color; \n\
+  background-color: @active-back-color; \n\
+  border-color: @border-color; \n\
+} \n\
+ \n\
+.@class-name:active, \n\
+.@class-name.active, \n\
+.open .dropdown-toggle.@class-name { \n\
+  background-image: none; \n\
+} \n\
+ \n\
+.@class-name.disabled, \n\
+.@class-name[disabled], \n\
+fieldset[disabled] .@class-name, \n\
+.@class-name.disabled:hover, \n\
+.@class-name[disabled]:hover, \n\
+fieldset[disabled] .@class-name:hover, \n\
+.@class-name.disabled:focus, \n\
+.@class-name[disabled]:focus, \n\
+fieldset[disabled] .@class-name:focus, \n\
+.@class-name.disabled:active, \n\
+.@class-name[disabled]:active, \n\
+fieldset[disabled] .@class-name:active, \n\
+.@class-name.disabled.active, \n\
+.@class-name[disabled].active, \n\
+fieldset[disabled] .@class-name.active { \n\
+  background-color: @back-color; \n\
+  border-color: @border-color; \n\
+} \n\
+ \n\
+.@class-name .badge { \n\
+  color: @back-color; \n\
+  background-color: @text-color; \n\
 }";
 
 			var css = cssTemplate
-				.replace(/@color1/g, $('#color1').val())
-				.replace(/@color2/g, $('#color2').val())
 				.replace(/@text-color/g, $('#text-color').val())
+				.replace(/@back-color/g, $('#back-color').val())
+				.replace(/@border-color/g, $('#border-color').val())
 				.replace(/@class-name/g, $('#class-name').val())
-				.replace(/@disabled-text-color/g, $('#disabled-text-color').val())
+				.replace(/@active-back-color/g, $('#active-back-color').val())
 				.replace();
 		
 			$('head style[data-role="custom"]').remove();
