@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<title>BBG - Bootstrap Button Generator</title>
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -26,13 +25,14 @@
 		background-image: url('img/tiny_grid.png');
 	}
 	.content {
-		max-width: 1000px;
+		width: 1000px;
 		margin: 0 auto;
 		background-color: rgba(255, 255, 255, .95);
 		box-shadow: 3px 0px 5px #E0E0E0, -3px 0px 5px #E0E0E0;
 	}
 	.container {
-		max-width: 1000px;
+		max-width: none !important;
+		width: 1000px;
 		padding-left: 30px;
 		padding-right: 30px;
   }
@@ -67,7 +67,7 @@
 		<div class="container">
 			<header class="page-header">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-xs-12">
 						<h1>Bootstrap Button Generator<br><small>The simplest way to generate new button styles for <a href="http://twitter.github.com/bootstrap/">Twitter's Bootstrap</a></small></h1>
 					</div>
 				</div>
@@ -75,12 +75,12 @@
 			
 			<section id="intro">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-xs-12">
 						<h2>How to use BBG</h2>
 					</div>			
 				</div>
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-xs-8">
 						<p>
 							It's easy. Really. Just enter the css class you want to assign to your new button style and 
 							play with the different button colors to update the live previews in the right.
@@ -98,7 +98,7 @@
 							<a href="http://twitter.github.com/bootstrap/customize.html">official customization tool</a>.
 						</p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-xs-4">
 						<img src="img/bootstrap_twitter.gif" class="img-responsive" alt="Bootstrap"/>
 					</div>
 				</div>
@@ -109,44 +109,44 @@
 			<section id="generator">
 				<div class="row">
 				
-					<div class="col-md-5 col-md-offset-1">
+					<div class="col-xs-5 col-xs-offset-1">
 						<form class="form-horizontal">
 							<h2>Generate Button</h2>
 							<br/>
 							<div class="form-group">
-								<label class="control-label col-md-6" for="class-name">Class Name:</label>
-								<div class="col-md-6">
+								<label class="control-label col-xs-6" for="class-name">Class Name:</label>
+								<div class="col-xs-6">
 									<input type="text" name="class-name" id="class-name" class="form-control input-sm" value="btn-sample"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-6" for="text-color">Text:</label>
-								<div class="col-md-6">
+								<label class="control-label col-xs-6" for="text-color">Text:</label>
+								<div class="col-xs-6">
 									<input type="text" name="text-color" id="text-color" class="color-picker form-control input-sm" size="7" value="#ffffff"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-6" for="back-color">Background:</label>
-								<div class="col-md-6">
+								<label class="control-label col-xs-6" for="back-color">Background:</label>
+								<div class="col-xs-6">
 									<input type="text" name="back-color" id="back-color" class="color-picker form-control input-sm" size="7" value="#611BBD"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-6" for="border-color">Border:</label>
-								<div class="col-md-6">
+								<label class="control-label col-xs-6" for="border-color">Border:</label>
+								<div class="col-xs-6">
 									<input type="text" name="border-color" id="border-color" class="color-picker form-control input-sm" size="7" value="#130269" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-md-6" for="active-back-color">Active:</label>
-								<div class="col-md-6">
+								<label class="control-label col-xs-6" for="active-back-color">Active:</label>
+								<div class="col-xs-6">
 									<input type="text" name="active-back-color" id="active-back-color" class="color-picker form-control input-sm" size="7" value="#49247A" />
 								</div>
 							</div>
 						</form>
 					</div>
 					
-					<div class="col-md-5 col-md-offset-1">
+					<div class="col-xs-5 col-xs-offset-1">
 						<h2><small>Button Previews</small></h2>
 						<br/>
 						<p>
@@ -172,7 +172,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
+					<div class="col-xs-10 col-xs-offset-1">
 						<form>
 							<h2><small>CSS Code</small></h2>
 							<label class="control-label" for="css-text">Add the following CSS <strong>below</strong> <em>bootstrap.min.css</em> to use this button: <a href="#" id="select-all">[Select all]</a>
@@ -185,7 +185,7 @@
 			
 			<footer>
 				<div class="row">
-					<div class="col-md-12 center">
+					<div class="col-xs-12 center">
 						<hr>
 						<small>
 							By Juan M. Hernández [<a href="http://blog.koalite.com">blog.koalite.com</a>]
